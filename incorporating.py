@@ -1,9 +1,20 @@
 # Basic Turn-Based Terminal Game
 
 def intro():
-    print(" Welcome to the Adventure Game!")
-    print("You must survive through 4 levels to win!")
-    print("Let's begin...\n")
+    print("========================================")
+    print("        ⚔️  ADVENTURE GAME  ⚔️")
+    print("========================================")
+    print("\nThe kingdom of Eldoria has fallen into chaos.")
+    print("Dark creatures roam the land, a fierce Dragon King rules the skies,")
+    print("and deep within the ancient dungeon, a powerful Wizard awaits.")
+    print("\nYou are a brave hero, chosen to restore peace to the realm.")
+    print("To succeed, you must survive through 4 perilous levels:")
+    print("  1️⃣  Face the wild goblin in the forest.")
+    print("  2️⃣  Uncover the secret of the trapped chest.")
+    print("  3️⃣  Confront the mighty Dragon King.")
+    print("  4️⃣  Defeat the cunning Wizard in his final challenge.")
+    print("\nYour courage and choices will decide the fate of Eldoria.")
+    print("Prepare yourself, hero... your journey begins now!\n")
 
 def level_one():
     print("Level 1: You encounter a wild goblin!")
@@ -177,7 +188,7 @@ def epilogue():
     print("You emerge from the dungeon into the sunlight—scarred but victorious.")
     print("Villagers cheer your name as tales of your bravery spread across the kingdoms.")
     print("You have proven yourself a true hero, not only by strength but by courage and wisdom.")
-    print("\nThank you for playing the Adventure Game! The realm will forever remember your deeds.\n")
+    print("\nThank you for playing the Adventure Game! The realm will forever remember your valor.\n")
 
 # --- Game Flow ---
 def main():
