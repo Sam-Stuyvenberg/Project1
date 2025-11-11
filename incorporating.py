@@ -1,5 +1,5 @@
 # Basic Turn-Based Terminal Game
-
+#Game intro
 def intro():
     print("========================================")
     print("          ADVENTURE GAME  ")
@@ -15,7 +15,8 @@ def intro():
     print("  4  Defeat the cunning Wizard in his final challenge.")
     print("\nYour courage and choices will decide the fate of Eldoria.")
     print("Prepare yourself, hero... your journey begins now!\n")
-
+    
+#Level 1, goblin encounter
 def level_one():
     print("Level 1: You encounter a wild goblin!")
     action = input("Do you (A)ttack or (R)un? ").lower()
@@ -30,7 +31,7 @@ def level_one():
         print("Invalid choice! You hesitate and the goblin strikes. Game Over!")
         return False
 
-
+#Level 2, treasure chest
 def level_two():
     print("\nLevel 2: You find a locked treasure chest.")
     action = input("Do you (O)pen it, (I)gnore it, or (S)mash it open? ").lower()
@@ -48,7 +49,7 @@ def level_two():
         print("You waste too much time deciding. The dungeon collapses! Game Over.")
         return False
 
-
+#Level 3, dragon king
 def level_three():
     print("\nLevel 3: You face the Dragon King!")
     action = input("Do you (F)ight, (N)egotiate, or (R)un? ").lower()
@@ -65,13 +66,16 @@ def level_three():
     else:
         print("Invalid input! The dragon strikes while you hesitate.")
         return False
-    
+
+#Level 4, the wizard (Tic-Tac-Toe)
 def level_four():
     print("Level 4: Face the Wizard!")
     print("The Wizard challenges you to a game of Tic-Tac-Toe!")
     print("You are X, the Wizard is O. Defeat him to win the game!\n")
 
     import random
+    
+#Collections: Lists used for the board and winning positions
     def print_board(board):
         print()
         for i in range(3):
@@ -86,7 +90,7 @@ def level_four():
             if i < 2:
                 print("---+---+---")
         print()
-
+#Check for winner
     def check_winner(board):
         wins = [
             [0,1,2],[3,4,5],[6,7,8],
@@ -117,11 +121,13 @@ def level_four():
 #game setup
     board = [None] * 9
     current = "X"
+#Example of second collection type (dictionary)
+    symbols = ["X": "You", "O": "Wizard"} #symbol to player name
 
-    # This is the Game loop 
+# This is the Game loop 
     while True:
         print_board(board)
-
+#Basic input
         if current == "X":
             move = input("Choose a position (1-9): ")
 
@@ -151,13 +157,14 @@ def level_four():
             if board[move] != None:
                 print("That spot is already taken.")
                 continue
-        else: #computer
+        else: #Wizards move
             move = ai_move(board)
             print("Wizard chooses position", move + 1)
+            
         #places the mark on the board
         board[move] = current
 
-        # Check for the winner
+        #Check for the winner
         winner = check_winner(board)
         if winner != None:
             print_board(board)
@@ -167,17 +174,17 @@ def level_four():
             else:
                 print("The Wizard wins! Your adventure ends here.\n")
                 return False
-
+        #Check for draw
         if is_draw(board):
             print_board(board)
             print("It's a draw! The Wizard vanishes, letting you live.\n")
             return True
-
+        #Switch turns
         if current == "X":
             current = "O"
         else:
             current = "X"
-            
+#Epilogue (Ending story)
 def epilogue():
     print("\n--- EPILOGUE ---")
     print("As the Wizard’s final spell fades, the dungeon begins to tremble.")
@@ -190,8 +197,10 @@ def epilogue():
     print("You have proven yourself a true hero, not only by strength but by courage and wisdom.")
     print("\nThank you for playing the Adventure Game! The realm will forever remember your valor.\n")
 
-# --- Game Flow ---
+#Game Flow/ levels
 def main():
+    name = input("Enter your hero's name:")
+    player = Player(name)
     while True:
         intro()
         if not level_one():
@@ -203,7 +212,7 @@ def main():
         if not level_four():
             continue
         else:
-            print("\n Congratulations, hero! You have completed all levels and saved the realm!!")
+            print(f"\n Congratulations, {player.name! You have completed all levels and saved the realm!!")
             epilogue()
         play_again = input("\nPlay again? (y/n): ").lower()
         if play_again != "y":
