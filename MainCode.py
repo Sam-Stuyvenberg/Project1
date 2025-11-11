@@ -5,7 +5,7 @@ def intro():
     print(" Welcome to the Adventure Game!")
     print("You must survive through 3 levels to win!")
     print("Let's begin...\n")
-
+# Level 1 code
 def level_one():
     print("Level 1: You encounter a wild goblin!")
     action = input("Do you (A)ttack or (R)un? ").lower()
@@ -20,7 +20,7 @@ def level_one():
         print("Invalid choice! You hesitate and the goblin strikes. Game Over!")
         return False
 
-
+# Level 2 code
 def level_two():
     print("\nLevel 2: You find a locked treasure chest.")
     action = input("Do you (O)pen it, (I)gnore it, or (S)mash it open? ").lower()
@@ -38,7 +38,7 @@ def level_two():
         print("You waste too much time deciding. The dungeon collapses! Game Over.")
         return False
 
-
+# Level 3 code
 def level_three():
     print("\nLevel 3: You face the Dragon King!")
     action = input("Do you (F)ight, (N)egotiate, or (R)un? ").lower()
