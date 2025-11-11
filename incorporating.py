@@ -166,7 +166,18 @@ def level_four():
             current = "O"
         else:
             current = "X"
-
+            
+def epilogue():
+    print("\n--- EPILOGUE ---")
+    print("As the Wizard’s final spell fades, the dungeon begins to tremble.")
+    print("The torches flicker and the ground cracks beneath your feet.")
+    print("You step forward, clutching your sword, as a soft light fills the room.")
+    print("The Wizard’s staff shatters, releasing a burst of golden magic that restores peace to the land.")
+    print("The goblins retreat to their caves, the dragons return to their mountains, and the realm is finally free.")
+    print("You emerge from the dungeon into the sunlight—scarred but victorious.")
+    print("Villagers cheer your name as tales of your bravery spread across the kingdoms.")
+    print("You have proven yourself a true hero, not only by strength but by courage and wisdom.")
+    print("\nThank you for playing the Adventure Game! The realm will forever remember your deeds.\n")
 
 # --- Game Flow ---
 def main():
@@ -182,7 +193,7 @@ def main():
             continue
         else:
             print("\n Congratulations, hero! You have completed all levels and saved the realm!!")
-        
+            epilogue()
         play_again = input("\nPlay again? (y/n): ").lower()
         if play_again != "y":
             print("Thanks for playing!")
