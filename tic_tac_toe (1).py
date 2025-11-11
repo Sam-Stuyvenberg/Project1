@@ -9,7 +9,7 @@ def print_board(board):
             if board[position] == None:
                 row.append(str(position + 1))
             else:
-                row.append(board[index])
+                row.append(board[position])
         print(" " + " | ".join(row))
         if i < 2:
             print("---+---+---")
