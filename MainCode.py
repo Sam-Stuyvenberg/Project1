@@ -1,5 +1,6 @@
 # Basic Turn-Based Terminal Game
 
+#Introduction
 def intro():
     print(" Welcome to the Adventure Game!")
     print("You must survive through 3 levels to win!")
