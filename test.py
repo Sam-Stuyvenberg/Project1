@@ -1,5 +1,5 @@
 # Basic Turn-Based Terminal Game
-# --- Player Class (for rubric "Designing with Classes") ---
+#Player Class (for rubric "Designing with Classes")
 class Player:
     def __init__(self, name):
         # instance variables
