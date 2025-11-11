@@ -2,17 +2,17 @@
 
 def intro():
     print("========================================")
-    print("        ⚔️  ADVENTURE GAME  ⚔️")
+    print("          ADVENTURE GAME  ")
     print("========================================")
     print("\nThe kingdom of Eldoria has fallen into chaos.")
     print("Dark creatures roam the land, a fierce Dragon King rules the skies,")
     print("and deep within the ancient dungeon, a powerful Wizard awaits.")
     print("\nYou are a brave hero, chosen to restore peace to the realm.")
     print("To succeed, you must survive through 4 perilous levels:")
-    print("  1️⃣  Face the wild goblin in the forest.")
-    print("  2️⃣  Uncover the secret of the trapped chest.")
-    print("  3️⃣  Confront the mighty Dragon King.")
-    print("  4️⃣  Defeat the cunning Wizard in his final challenge.")
+    print("  1  Face the wild goblin in the forest.")
+    print("  2  Uncover the secret of the trapped chest.")
+    print("  3  Confront the mighty Dragon King.")
+    print("  4  Defeat the cunning Wizard in his final challenge.")
     print("\nYour courage and choices will decide the fate of Eldoria.")
     print("Prepare yourself, hero... your journey begins now!\n")
 
