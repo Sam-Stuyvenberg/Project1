@@ -1,0 +1,193 @@
+# Basic Turn-Based Terminal Game
+
+def intro():
+    print(" Welcome to the Adventure Game!")
+    print("You must survive through 4 levels to win!")
+    print("Let's begin...\n")
+
+def level_one():
+    print("Level 1: You encounter a wild goblin!")
+    action = input("Do you (A)ttack or (R)un? ").lower()
+
+    if action == "a":
+        print("You swing your sword and defeat the goblin!")
+        return True
+    elif action == "r":
+        print("You try to run, but the goblin catches you. Game Over!")
+        return False
+    else:
+        print("Invalid choice! You hesitate and the goblin strikes. Game Over!")
+        return False
+
+
+def level_two():
+    print("\nLevel 2: You find a locked treasure chest.")
+    action = input("Do you (O)pen it, (I)gnore it, or (S)mash it open? ").lower()
+
+    if action == "o":
+        print("You open it carefully and find a healing potion!")
+        return True
+    elif action == "s":
+        print("You smash it open—BOOM! It's a trap. You lose.")
+        return False
+    elif action == "i":
+        print("You ignore it and move on safely.")
+        return True
+    else:
+        print("You waste too much time deciding. The dungeon collapses! Game Over.")
+        return False
+
+
+def level_three():
+    print("\nLevel 3: You face the Dragon King!")
+    action = input("Do you (F)ight, (N)egotiate, or (R)un? ").lower()
+
+    if action == "f":
+        print("You battle bravely and slay the dragon! You win the game!")
+        return True
+    elif action == "n":
+        print("You talk to the dragon and become allies. Victory through peace!")
+        return True
+    elif action == "r":
+        print("You try to run, but the dragon burns you to ashes. Game Over!")
+        return False
+    else:
+        print("Invalid input! The dragon strikes while you hesitate.")
+        return False
+    
+def level_four():
+    print("Level 4: Face the Wizard!")
+    print("The Wizard challenges you to a game of Tic-Tac-Toe!")
+    print("You are X, the Wizard is O. Defeat him to win the game!\n")
+
+    import random
+    def print_board(board):
+        print()
+        for i in range(3):
+            row = []
+            for j in range(3):
+                position = 3 * i + j
+                if board[position] == None:
+                    row.append(str(position + 1))
+                else:
+                    row.append(board[position])
+            print(" " + " | ".join(row))
+            if i < 2:
+                print("---+---+---")
+        print()
+
+    def check_winner(board):
+        wins = [
+            [0,1,2],[3,4,5],[6,7,8],
+            [0,3,6],[1,4,7],[2,5,8],
+            [0,4,8],[2,4,6]
+        ]
+        for win in wins:
+            a = win[0]
+            b = win[1]
+            c = win[2]
+            if board[a] != None and board[a] == board[b] and board[a] == board[c]:
+                return board[a]
+        return None
+
+    def is_draw(board):
+        for cell in board:
+            if cell == None:
+                return False
+        return True
+
+    def ai_move(board):
+        empty = []
+        for i in range(9):
+            if board[i] == None:
+                empty.append(i)
+        return random.choice(empty)
+
+#game setup
+    board = [None] * 9
+    current = "X"
+
+    # This is the Game loop 
+    while True:
+        print_board(board)
+
+        if current == "X":
+            move = input("Choose a position (1-9): ")
+
+            if move == "1":
+                move = 1
+            elif move == "2":
+                move = 2
+            elif move == "3":
+                move = 3
+            elif move == "4":
+                move = 4
+            elif move == "5":
+                move = 5
+            elif move == "6":
+                move = 6
+            elif move == "7":
+                move = 7
+            elif move == "8":
+                move = 8
+            elif move == "9":
+                move = 9
+            else:
+                print("Invalid input. Please enter a number 1–9.")
+                continue
+
+            move = move - 1
+            if board[move] != None:
+                print("That spot is already taken.")
+                continue
+        else: #computer
+            move = ai_move(board)
+            print("Wizard chooses position", move + 1)
+        #places the mark on the board
+        board[move] = current
+
+        # Check for the winner
+        winner = check_winner(board)
+        if winner != None:
+            print_board(board)
+            if winner == "X":
+                print("You defeated the Wizard! You win the game!\n")
+                return True
+            else:
+                print("The Wizard wins! Your adventure ends here.\n")
+                return False
+
+        if is_draw(board):
+            print_board(board)
+            print("It's a draw! The Wizard vanishes, letting you live.\n")
+            return True
+
+        if current == "X":
+            current = "O"
+        else:
+            current = "X"
+
+
+# --- Game Flow ---
+def main():
+    while True:
+        intro()
+        if not level_one():
+            continue
+        if not level_two():
+            continue
+        if not level_three():
+            continue
+        if not level_four():
+            continue
+        else:
+            print("\n Congratulations, hero! You have completed all levels and saved the realm!!")
+        
+        play_again = input("\nPlay again? (y/n): ").lower()
+        if play_again != "y":
+            print("Thanks for playing!")
+            break
+
+# Start the game
+if __name__ == "__main__":
+    main()
