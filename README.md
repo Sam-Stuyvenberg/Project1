@@ -1,2 +1,2 @@
-[The U Quest]
+_[The U Quest]_
 Is an adventure game created by Sam Stuyvenberg, Clarence Peah, and Alexis Breckenridge. This game uses object-oriented programming to create the user as a player with mutable name, health points, and inventory statistics. The logic of our individual levels is created using conditional statements to progress the user along the game. Additionally, a "Boss Battle" is included with a mini-game of Tic-Tac-Toe. This mini-game is comprised of conditional statements to mimic another player competing with the user/player. Upon completion, an end screen will appear on the terminal debriefing the user/player on their current run of the game. Within the game, the story will be provided through text-based interaction. Good luck and have fun, players!
