@@ -215,24 +215,51 @@ def main():
     while True:
         intro()
         if not level_one():
-            continue
+            print("\nYou've died! Try again.\n")
+            play_again = input("Do you want to play again? (y/n): ").lower()
+            if play_again != "y":
+                print(f"Thanks for playing, {player.name}!")
+                break
+            else:
+                continue
+
         if not level_two():
-            continue
+            print("\nYou've died! Try again.\n")
+            play_again = input("Do you want to play again? (y/n): ").lower()
+            if play_again != "y":
+                print(f"Thanks for playing, {player.name}!")
+                break
+            else:
+                continue
+
         if not level_three():
-            continue
+            print("\nYou've died! Try again.\n")
+            play_again = input("Do you want to play again? (y/n): ").lower()
+            if play_again != "y":
+                print(f"Thanks for playing, {player.name}!")
+                break
+            else:
+                continue
+
         if not level_four():
-            continue
-        else:
-            player.add_win()
-            print(f"\nCongratulations, {player.name}! You have completed all levels and saved the realm!!")
-            print(f"Total victories: {player.wins}")
-            epilogue()
+            print("\nYou've died! Try again.\n")
+            play_again = input("Do you want to play again? (y/n): ").lower()
+            if play_again != "y":
+                print(f"Thanks for playing, {player.name}!")
+                break
+            else:
+                continue
+        
+        # If they complete all levels
+        player.add_win()
+        print(f"\nCongratulations, {player.name}! You have completed all levels and saved the realm!!")
+        print(f"Total victories: {player.wins}")
+        epilogue()
         
         play_again = input("\nPlay again? (y/n): ").lower()
         if play_again != "y":
             print(f"Thanks for playing, {player.name}!")
             break
-
 # Start the game
 if __name__ == "__main__":
     main()
