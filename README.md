@@ -1,2 +1,2 @@
 # Project1
-Repository for my project.
+# An adventure game created by Sam Stuyvenberg, Clarence Peah, Alexis Breckenridge. This game uses objedct oriented programing to create the user as a player with mutable name, healthpoints, and inventory statisitcs. The logic of our indivdual levels is created using conditional statements to progress the user along the game. Additionally a "Boss Battle" is included with a mini-game of Tic-Tac-Toe. This minigame is comprised of conditional statements to mimic another playher competeing with the user/player. Upon completion an end screen will appear on the terminal debreifing the user/player on their current run of the game. Within the game, the story will be provided through text based interaction. Good Luck and have fun Players!
