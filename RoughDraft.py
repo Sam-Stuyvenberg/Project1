@@ -1,4 +1,4 @@
-# Basic Turn-Based Terminal Game
+# Basic Sequential Terminal Game
 #Player Class (for rubric "Designing with Classes")
 class Player:
     def __init__(self, name):
