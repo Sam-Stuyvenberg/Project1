@@ -15,7 +15,7 @@ class Player:
 
     def show_inventory(self):
         print(f"{self.name}'s Inventory:")
-        if != self.inventory:
+        if not self.inventory:
             print("  (empty)")
         else:
             i = 1
@@ -144,35 +144,47 @@ def level_four(player):
         return None
 
     def is_draw(board):
-        return all(cell is not None for cell in board)
-
-    def ai_move(board): #ai assisted
-        empty = [i for i, cell in enumerate(board) if cell == None]
+        return None not in board
+    
+    def ai_move(board):
+        empty = []
+        for i in range(len(board)):
+            if board[i] is None:
+                empty.append(i)
         return random.choice(empty)
 
     #game setup
-    board = [] * 9
+    board = [None] * 9
     current = "X"
     symbols = {"X": "You", "O": "Wizard"}
 
-    # Game loop 
+# Game loop 
     while True:
         print_board(board)
+
         if current == "X":
             move = input("Choose a position (1-9): ")
-            if not move.isdigit() or not (1 <= int(move) <= 9):
+
+            # Input check
+            if move not in ["1","2","3","4","5","6","7","8","9"]:
                 print("Invalid input. Please enter a number 1–9.")
                 continue
-            move = int(move) - 1
-            if board[move] != None:
+
+            move = int(move) - 1  # Convert to board index
+
+            if board[move] is not None:
                 print("That spot is already taken.")
                 continue
+
         else:
+            # Wizard's turn
             move = ai_move(board)
             print("Wizard chooses position", move + 1)
-        
+
+        # Place the X or O
         board[move] = current
-  
+
+        # Check for winner
         winner = check_winner(board)
         if winner:
             print_board(board)
@@ -185,11 +197,13 @@ def level_four(player):
                 print("The Wizard wins! Your adventure ends here.\n")
                 return False
 
+        # Check for draw
         if is_draw(board):
             print_board(board)
             print("It's a draw! The Wizard vanishes, letting you live.\n")
             return True
 
+        # Switch players
         if current == "X":
             current = "O"
         else:
