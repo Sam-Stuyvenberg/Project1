@@ -209,7 +209,24 @@ def level_four(player):
         else:
             current = "X"
 
+def level_five():
+    print("\nLevel 5: The Final Riddle of Eldoria!")
+    print("A mystical voice echoes through the chamber:")
+    print('"Answer my question, hero, and the realm shall be forever free..."')
+    print()
+    print("Riddle: The more there is, the less you see. What could I be?")
+    answer = input("Your answer: ").strip().lower()
+
+    if "darkness" in answer:
+        print("\nThe air shimmers — the voice laughs. 'You are wise indeed, hero.'")
+        print("The final seal is broken! You have conquered every challenge!")
+        return True
+    else:
+        print("\nThe chamber shakes... 'Wrong!' the voice booms. You are cast into darkness!")
+        return False
+
 #Epilogue
+# 
 def epilogue():
     print("\n--- EPILOGUE ---")
     print("As the Wizard’s final spell fades, the dungeon begins to tremble.")
@@ -269,6 +286,17 @@ def main():
                 break
             else:
                 continue
+
+        # Level 5
+        if not level_five():
+            print("\nYou failed Level 5! Try again.\n")
+            play_again = input("Do you want to play again? (y/n): ").lower()
+            if play_again != "y":
+                print(f"Thanks for playing, {player.name}!")
+                break
+            else:
+                continue
+
 
         # If all levels completed
         player.add_win()
