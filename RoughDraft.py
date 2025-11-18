@@ -7,7 +7,7 @@ class Player:
         self.name = name
         self.level = level
         self.inventory = []
-        self.wins = 0  # track victories
+        self.wins = 0  # keeps track of wins
 
     def add_item(self, item):
         self.inventory.append(item)
@@ -15,7 +15,7 @@ class Player:
 
     def show_inventory(self):
         print(f"{self.name}'s Inventory:")
-        if not self.inventory:
+        if != self.inventory:
             print("  (empty)")
         else:
             i = 1
@@ -146,12 +146,12 @@ def level_four(player):
     def is_draw(board):
         return all(cell is not None for cell in board)
 
-    def ai_move(board):
+    def ai_move(board): #ai assisted
         empty = [i for i, cell in enumerate(board) if cell == None]
         return random.choice(empty)
 
     #game setup
-    board = [None] * 9
+    board = [] * 9
     current = "X"
     symbols = {"X": "You", "O": "Wizard"}
 
