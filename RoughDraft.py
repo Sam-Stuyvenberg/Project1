@@ -34,6 +34,36 @@ class Player:
     def __str__(self):
         return f"{self.name} (Level {self.level})"
     
+    def save_to_file(self, filename="player_save.txt"):
+        with open(filename, "w") as file:
+            file.write(self.name + "\n")
+            file.write(str(self.level) + "\n")
+            file.write(str(self.wins) + "\n")
+            file.write(",".join(self.inventory) + "\n")
+        print("Progress saved successfully!")
+
+    @staticmethod
+    def load_from_file(filename="player_save.txt"):
+        try:
+            with open(filename, "r") as file:
+                name = file.readline().strip()
+                level = int(file.readline().strip())
+                wins = int(file.readline().strip())
+                inventory_line = file.readline().strip()
+
+            player = Player(name, level)
+            player.wins = wins
+            if inventory_line:
+                player.inventory = inventory_line.split(",")
+            else:
+                player.inventory = []
+
+            print(f"Save file loaded! Welcome back, {name}.")
+            return player
+
+        except FileNotFoundError:
+            return None
+    
 #Game intro
 def intro():
     print("========================================")
@@ -241,8 +271,8 @@ def epilogue():
 
 #main
 def main():
-    name = input("Enter your hero's name: ")
-    player = Player(name)
+    
+   player = load_or_create_player()
 
     while True:
         intro()
