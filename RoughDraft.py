@@ -270,9 +270,20 @@ def epilogue():
     print("\nThank you for playing the Adventure Game! The realm will forever remember your valor.\n")
 
 #main
+def load_or_create_player():
+    saved_player = Player.load_from_file()
+
+    if saved_player:
+        use_save = input("Load saved game? (y/n): ").lower()
+        if use_save == "y":
+            return saved_player
+
+    # No save or user wants a new game
+    name = input("Enter your hero's name: ")
+    return Player(name)
+
 def main():
-    
-   player = load_or_create_player()
+    player = load_or_create_player()
 
     while True:
         intro()
@@ -334,6 +345,8 @@ def main():
         print(f"Total victories: {player.wins}")
         epilogue()
         player.show_stats()
+        player.save_to_file()
+
 
         # Ask to play again
         play_again = input("\nDo you want to play again? (y/n): ").lower()
