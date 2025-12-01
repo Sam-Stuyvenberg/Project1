@@ -84,6 +84,8 @@ def intro():
 #Level 1, goblin encounter
 def level_one(player):
     print("Level 1: You encounter a wild goblin!")
+    # TUPLE ADDED HERE
+    valid_actions = ("a", "r")
     action = input("Do you (A)ttack or (R)un? ").lower()
     if action == "a":
         print("You swing your sword and defeat the goblin!")
@@ -100,6 +102,8 @@ def level_one(player):
 #Level 2, treasure chest
 def level_two(player):
     print("\nLevel 2: You find a locked treasure chest.")
+    # TUPLE ADDED HERE
+    valid_actions = ("o", "i", "s")
     action = input("Do you (O)pen it, (I)gnore it, or (S)mash it open? ").lower()
     if action == "o":
         print("You open it carefully and find a mysterious artifact!")
@@ -119,6 +123,7 @@ def level_two(player):
 #Level 3, dragon king
 def level_three(player):
     print("\nLevel 3: You face the Dragon King!")
+    valid_actions = ("f", "n", "r")
     action = input("Do you (F)ight, (N)egotiate, or (R)un? ").lower()
     if action == "f":
         print("You battle bravely and slay the dragon!")
